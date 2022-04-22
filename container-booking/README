@@ -1,0 +1,52 @@
+ ------- BOOKING SERVICE -----
+
+#CODE EXPLANATION
+
+  CONFIGURATION :  application.yml
+  PORT : 9001
+  ENDPOINT : http://localhost:9001/api/bookinigs
+  CONTROLLER : BookingController.java
+  METHOD : bookContainer (POST)
+  PARAM : Booking (Entity)
+  EX:
+   {
+             "containerType" : "DRY",
+             "containerSize" : 40,
+             "origin" : "Southampton",
+             "destination" : "Singapore",
+             "quantity" : 2,
+             "timeStamp" : "2020-10-12T13:53:09Z"
+   }
+    
+   RETURN : JSON (Response Entity)
+   EX:
+   {
+    "bookingRefId": 957000002
+   }
+   
+   REFERENCE IMAGE : Endpoint2-test-postman.png ATTACHED
+   UNIT TESTED : Using Postman (SCREENSHOT ATTACHED)
+   
+   EXCEPTION HANDLED : Created custom exception and handled
+   			 BookingException.java
+   			 ParameterException.java
+   			 ServiceException.java
+   PACKAGE: com.container.exception
+   
+ #DB CONNECTION
+    
+   DB : Cassandra (Running in PORT 9042)
+   KEYSPACE : container_yard
+   TABLES : container, booking
+   data.sql is ATTACHED
+   
+   PACKAGE HIERARCHY:
+     com.container
+     com.container.controller
+     com.container.model
+     com.container.config
+     com.container.service
+     com.container.repository
+     com.container.exception
+   CONFIG : Config file for Bean creation and settings
+     
